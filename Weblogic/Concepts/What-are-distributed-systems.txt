@@ -1,0 +1,5 @@
+Distributed Systems:- A distributed system is a system that divide work across similar modules/ machines. As demand increases, we can add additional modules to the system.
+This helps in making the system more scalable
+This also helps to minimize the impact of failure in a single module, there by making the system more available.
+
+The goal of making a distributed system is to - Better manage the complexity and resulting cost of providing highly available systems.
