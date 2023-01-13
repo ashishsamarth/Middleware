@@ -1,0 +1,7 @@
+The Node Manager is an optional process that runs on a machine and manages the availability of all servers that run on that machine. 
+
+Node Managers help you remotely start, stop, suspend, and restart Managed Servers. 
+
+The Node Manager works with the Admin Server using a secure channel and lets you manage the availability, as well as monitor the health, of all Managed Servers in a single domain. The Managed Servers that the Node Manager controls can be independent servers or they can be members of a cluster. 
+
+The Node Manager monitors remote Managed Servers and is capable of automatically restarting them when they fail. It also kills Managed Servers that exhibit unstable behavior. It is recommended that you install a Node Manager service on each machine that hosts a Managed Server. Managing the servers with Node Manager is actually a key requirement for configuring automatic server migration in a cluster following a server failure.
