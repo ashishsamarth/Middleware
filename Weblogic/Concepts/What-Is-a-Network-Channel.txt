@@ -1,0 +1,4 @@
+Network channels allows you to separate different classes of network traffic. You can make use of separate network channels to separate server and client traffic and direct it to different listening ports or addresses. If you need to allow both secure and nonsecure traffic on the same server, you can create multiple channels to support the diverse traffic with different security protocols. 
+You can also use network channels to manage quality of service by using weighted, value-based priorities for different channels. This enables you to assign high-weighted values to faster channels that use faster network interface cards and dedicate them to the types of traffic that require faster throughput, 
+
+for example. Network channels control all communication related aspects such as listen addresses, protocols, and port numbers throughout the domain.
