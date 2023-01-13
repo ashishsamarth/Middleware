@@ -1,0 +1,21 @@
+A WebLogic Server cluster is a group of WebLogic Server instances consisting of multiple Managed Servers that run simultaneously. 
+The multiple Managed Servers work together to provide replication services for one another, and the Admin Server isn’t generally a part of any cluster. 
+Most production deployments use clusters to increase reliability and scalability through load distribution and high availability. To achieve the high availability capability, you deploy resources and services in a homogeneous fashion on each of the Managed Servers that are part of a cluster. 
+
+Clusters host applications that respond to HTTP requests that are routed to the cluster through a hardware load balancer. 
+You can also set up load balancing on a WebLogic Server instance or a third-party web server with the help of plug-ins supplied by WebLogic Server. The load balancer handles the HTTP requests after the requests pass through a firewall.
+
+Cluster members pass replicated copies of objects such as HTTP sessions among themselves to provide the failover capability for the cluster.
+
+Clusters provide load-balancing capabilities by letting you spread requests across the cluster members. 
+Clusters also offer scalability by letting you easily add additional servers to the cluster to accommodate increased demand for WebLogic Server services. 
+
+The important thing to understand here is that the cluster automatically provides these capabilities, so your users won’t have to experience service disruptions. 
+Each WebLogic domain may consist of multiple Java EE resources, such as JDBC connection pools and JMS servers, which the domain makes available to all the applications it hosts. 
+
+Note that domain resources, like a JDBC connection pool, aren’t shared across domains—each WebLogic domain must create its own set of resources. This requirement applies when dealing with clusters as well, which are treated as domain resources. 
+A cluster’s Managed Servers thus can’t overlap domains and belong to more than one domain at the same time. 
+
+Therefore, whenever you perform a failover within a cluster, you can fail over from one Managed Server to another Managed Server within the same domain but not to a Managed Server that belongs to a different domain
+
+Although a WebLogic Server cluster can run entirely on a single machine, to take advantage of the high availability features, a cluster’s member servers are typically installed on two or more physical machines. To increase a cluster’s capacity, you can either add more Managed Server instances to the existing cluster architecture, or you can add more physical machines to the cluster, with the additional machines hosting new Managed Server instances, of course. Managed Servers can serve as backups for services such as JTA and JMS that another Managed Server in the same cluster hosts
