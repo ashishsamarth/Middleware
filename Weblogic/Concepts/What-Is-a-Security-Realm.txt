@@ -1,0 +1,5 @@
+A security realm is simply a logical container for your users, groups, roles, security policies, and security providers. It’s the security realm that authenticates users and determines which resources they can access. 
+
+WebLogic Server uses a default security realm named myrealm. In the default security realm, the Admin Server stores the domain security data in an LDAP server, but you can also choose an RDBMS store for this instead. The Managed Servers replicate this LDAP server, and when the Admin Server fails, it can use their copy of the LDAP server for providing security services to the deployed applications.
+
+When you create a domain, the username/password credentials you provide are used by the Configuration Wizard to seed the security realm myrealm. The username you provide will be the initial administrative user in myrealm. When you start WebLogic Server, it uses the default security realm to authenticate usernames. You can configure the server to use other security realms, but you must always specify one of them as the default security realm.
