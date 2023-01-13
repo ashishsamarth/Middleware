@@ -1,5 +1,5 @@
 A WebLogic Server instance is a Java Virtual Machine (JVM) process that runs the Java code. The instance is the actively working component, receiving client requests and sending them on to the appropriate components, and sending the processed requests back to the originating clients.
-The server instance manages the resources necessary for applications, such as the JTA and JDBC services, to function. In each domain (to be explained in the following section), one instance serves as the Administration Server, which is your primary means of managing the domain. The rest of the WebLogic Server instances in a domain are called Managed Servers. 
+The server instance manages the resources necessary for applications, such as the JTA and JDBC services, to function. In each domain, one instance serves as the Administration Server, which is your primary means of managing the domain. The rest of the WebLogic Server instances in a domain are called Managed Servers. 
 If you have a domain with just one WebLogic Server instance, as is the case in a development environment, the single server instance functions as both the Administration Server and the Managed Server. 
 
 Note that the terms WebLogic Server and WebLogic instance are often used interchangeably.
