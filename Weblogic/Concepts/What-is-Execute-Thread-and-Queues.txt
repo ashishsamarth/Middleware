@@ -1,0 +1,18 @@
+When a client sends a request to WebLogic Server, the actual work to satisfy that request is performed by a Java thread called an execute thread.
+
+A user can submit work to WebLogic Server using an HTTPbased request to the servlet engine or a request for Remote Method Invocation (RMI) access to objects such as Enterprise JavaBeans (EJBs).
+
+When a server process starts, it binds itself to a port and assigns a listen thread to the port to listen for incoming requests
+
+Once the request makes a connection, the server passes control of that connection to the socket muxer. The socket muxer
+reads requests off the socket and places the work requests into the self-tuning execute queue as they arrive.An idle execute thread will pick up a request from the execute queue and may, in turn, hand off the job of responding to those requests to special threads. The execute thread executes the requests and returns the responses.
+
+Oracle WebLogic Server uses socket muxers, which are software modules, to read incoming requests on the server.Muxers read messages from the network, bundle them into a package of work, and queue them to the Work Manager, which then finds a thread on which to execute the work and makes sure the response gets back to the same socket from which the request came.
+
+There are two types of muxers—a Java muxer and a native muxer. A Java muxer uses pure Java to read data from the sockets, whereas the native muxers use platform-specific native binaries.
+
+By default, Oracle WebLogic Server uses the native muxer. This means that the Enable Native IOP parameter for the server is set to the value SELECTED. Note that with a native muxer, the server creates a fixed number of threads to read incoming requests, whereas with a Java muxer you can configure the number of threads in the Administration Console by modifying the Percent Socket Readers parameter. The native muxer allocates a certain percentage of the server threads to act as socket reader threads, which perform the pooling function, while the rest of the server threads are busy processing client requests.
+
+You can tell if you’re using a native muxer or a Java muxer by looking at the messages that involve the execute thread. If you’re using the native muxer, the server error messages will refer to it as weblogic.socket.EPollSocketMuxer, whereas if you’re using the Java muxer, you’ll see weblogic.socket.SocketMuxer instead. 
+Note that the EPollSockerMuxer is associated only with a JRockit JVM operating on a Linux server. You’ll see the word poll in the case of a native muxer because it uses a polling mechanism to query a socket for data. Native muxers are seen as providing superior performance, especially when scaling up to large user bases, because they implement a nonblocking thread model.
+When administering WebLogic Server instances, you’ll frequently encounter the so-called stuck thread situation, which occurs when a thread isn’t returned to the thread pool within the timeframe you set for it (the default is 10 minutes).
