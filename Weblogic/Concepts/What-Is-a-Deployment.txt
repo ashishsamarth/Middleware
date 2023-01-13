@@ -1,0 +1,4 @@
+When you want to make a Java EE application or a stand-alone application module available to users, you must first install those applications and modules in a WebLogic domain. 
+Once you install the applications and modules, you must start those so the applications can begin processing user requests. Deployment is the process of installing the applications or modules and starting them so they are available to clients. 
+
+Developers package applications for delivery to administrators, who then deploy the applications to WebLogic Server instances or clusters.You can deploy applications to development and production environments by using the Administration Console, WLST, and the weblogic.Deployer utility
