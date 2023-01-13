@@ -1,0 +1,2 @@
+Availiability can be defined as - The ability to process incoming requests without downtime. A high availiability environment set up is designed to run and process requests 24 x 7 x 365.
+The set up of such an environment utilizes, Load Balancing techniques and Failover processes and mechanisms to be in place.
