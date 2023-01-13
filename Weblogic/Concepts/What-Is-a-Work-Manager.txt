@@ -1,0 +1,8 @@
+A Work Manager helps you manage the WebLogic Server instance workload, specifically by letting you prioritize work execution, which you do by defining request classes and constraints. 
+You can configure a Work Manager at the domain level (using a global Work Manager) or at the application or module level.
+
+Services
+Following are some of the main services used in a WebLogic environment:
+a.	JDBC (Java Database Connectivity) enables Java programs to handle database connections established through connection pools.
+b.	JMS (Java Messaging Service) is a standard API that enables applications to communicate	through enterprise messaging systems.
+c.	JTA (Java Transaction API) specifies standard Java interfaces between transaction managers and the parties in a distributed transaction system.
