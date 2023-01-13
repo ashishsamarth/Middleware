@@ -1,0 +1,2 @@
+Scalability can be defined as - How well a system to adapt to increasing demands. When the capacity of distributed systems is reached, new equipment / modules / machines can be added fairly easily. So that these new components can handle the increased demands. 
+Distributed systems have an additional advantange of potential low initial cost to set up, since components can be added after initial setup
