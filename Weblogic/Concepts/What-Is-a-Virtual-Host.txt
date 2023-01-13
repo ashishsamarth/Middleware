@@ -1,0 +1,1 @@
+A virtual host relies on the Domain Name System (DNS) to map hostnames to the IP address of a single server or a cluster of servers. By doing so, multiple domain names can be hosted on your server wherein different web applications can be assigned to different virtual hosts, effectively sharing all resources and being differentiated only by their hostnames.
