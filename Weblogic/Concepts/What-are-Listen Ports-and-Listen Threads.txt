@@ -1,0 +1,12 @@
+Listen Ports and Listen Threads
+
+Listen ports listen for connection requests, and, as connections come in, the listen thread assigned by the server to the listen port accepts the connection requests, establishes connections, and hands the requests over to the socket muxer.
+By default, Oracle WebLogic Server uses two listen ports to listen to incoming requests for connections.When you start a WebLogic Server instance, it starts listening on two different ports
+
+The first listen port, is a non-ssl listen port, accepts any type of request— administrative as well as user requests. The normal listen port accepts connections from various protocols such as HTTP, t3, IIOP, COM, LDAP, and SNMP.
+
+The second listen port, is a ssl listen port, that also accepts requests for connections from clients over protocols such as HTTPS, t3s, IIOPS, COMS, and LDAPS. This port is called the administration port,When you configure an administration port, the requests must use SSL, at which point you won’t be able to direct any administrative requests to the normal port
+
+
+Having two separate ports—one for administrative operations and the other for the application traffic— prevents a conflict between these two types of network traffic. In a production environment, you can thus ensure that critical administrative operations, such as starting and stopping servers or deploying applications, don’t compete with the application traffic. The administration port accepts only secure SSL traffic, so all connections through this port will have to be authenticated. 
+Note: Only administrative users can authenticate on the administration port, and no administrative traffic is rejected on non-admin ports when you enable the administration port.
