@@ -1,0 +1,23 @@
+WebLogic Server implements the system administration infrastructure with Oracle’s Java Management Extensions (JMX). Implementing the JMX API involves using Java MBeans (managed beans) to model system administration tasks
+
+Administrative tools, such as the Administration Console, use the same MBeans and JMX API,and the same can be utilized to build custom management tools.Although a WebLogic Server administrator doesn’t need to know how to program the JMX API, it helps to understand the different types of MBeans and how the JMX API interacts with them
+
+WebLogic Server uses two basic types of MBeans—configuration MBeans and runtime MBeans—to configure, monitor, and manage the server and its resources
+
+1.  Configuration MBeans: contain the configuration information for servers and resources that is stored in the domain’s configuration files such as the config.xml file and other XML files. These are persistent MBeans, and the domain’s configuration file, config.xml, stores the attribute values for these MBeans. Whenever you change a configuration attribute using a system administration tool such as the Admin Server, those changes persist in the config.xml file.
+
+    Configuration values can also be set by modifying the startup scripts and adding additional arguments via the -D option in the Java startup command. The config. xml file automatically gets updated when you change any configuration settings. When a Managed Server starts, it contacts the Admin Server and gets a copy of the configuration details, which it stores in memory as configuration MBeans.
+
+    Note: Thus, all server instances in a domain have the same in-memory representation of the domain’s configuration. Note that any attributes you change when starting a Managed Server won’t affect the config.xml file,which is modified only if you change an attribute value on the Admin Server. When you shut down a server instance, all configuration MBeans hosted by that server are destroyed.
+
+2.  Runtime MBeans help you monitor running server instances and contain attributes that hold run-time information for server instances and applications. Each of the server’s resources updates the relevant runtime MBean following a change in its state
+
+    For example: The ServerRuntimeMBean is instantiated by the server when it starts and contains the run-time data for the server. Runtime MBeans consist only of run-time data and nothing else, and when you shut down the server, the run-time statistics in the ServerRuntimeMBean are destroyed, as is the case with all the other runtime MBeans
+
+MBean Servers act as containers for the various MBeans, and the servers create and provide access to the MBeans. Oracle provides three types of MBean Servers.
+
+    a.  The Admin Server hosts an instance of the Domain Runtime MBean Server, which manages the MBeans for domain-wide services. The Admin Server also hosts the Edit MBean Server, which manages pending configuration changes
+
+    b.  Both Managed Servers and the Admin Server host an instance of the Runtime MBean Server, which lets you configure server instances
+
+    c.  The Admin and the Managed Servers also can optionally host the JVM’s Platform MBean Server, which controls MBeans that contain monitoring information for the JDK
