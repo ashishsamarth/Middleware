@@ -1,0 +1,26 @@
+1.  Login as non-root user to the machine
+
+2.  Navigate to following path:
+        cd /opt/oracle/Middleware/Oracle_Home/wlserver/server/bin
+
+3.  If you are trying to run WLST for the first time
+        Execute the Following:
+            1.  source setWLSEnv.sh
+            2.  java weblogic.WLST
+
+            Note: For first run, it takes few minutes, since JYTHON tries to check few java libraries to ensure, it has everything needed for WLST to run
+
+4.  If WLST has already been set up, execute the following
+        java weblogic.WLST
+
+        # Following prompt will open
+        [devops@vboxol79 bin]$ java weblogic.WLST
+
+        Initializing WebLogic Scripting Tool (WLST) ...
+        Welcome to WebLogic Server Administration Scripting Shell
+        Type help() for help on available commands
+
+        wls:/offline>
+
+5.  To exit from WLST, execute the following
+        exit()
